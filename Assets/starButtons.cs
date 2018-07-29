@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class speakButtons:MonoBehaviour
+public class starButtons : MonoBehaviour
 {
     public KMSelectable selectable;
     public Renderer buttonRend;
