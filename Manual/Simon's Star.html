@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Simon's Star — Keep Talking and Nobody Explodes Module</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type='text/css' href="css/font.css">
+    <script src='js/highlighter.js'></script>
+
+    <style>
+        .centered-image {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="page page-bg-04">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title translatable">Simon's Star</span>
+            </div>
+            <div class="page-content">
+                <img src="img/Component/Simons_Star.svg" class="diagram">
+                <h2 class='translatable'>On the Subject of Simon's Star</h2>
+                <p class="flavour-text translatable">Simon has given up on doing stuff and started possessing stuff instead.</p>
+
+                <ul>
+                    <li class='translatable'>The module consists of five coloured buttons and a cycling number.</li>
+                    <li class='translatable'>To disarm the module you must correctly input the response at each of the five stages in accordance with the table below.</li>
+                    <li class='translatable'>Each subsequent stage adds another colour to the sequence.</li>
+                    <li class='translatable'>At each stage, you must first press the buttons of the previous stages.</li>
+                    <li class='translatable'>The current sequence will repeat after a short delay until you press a button.</li>
+                    <li class='translatable'>Pressing a correct button will pause the sequence until you have correctly entered the whole response.</li>
+                    <li class='translatable'>Pressing an incorrect button will cause a strike and restart the current sequence.</li>
+                  </ul>
+                  <ul>
+                    <li class='translatable'>In the table, a '+' button denotes a clockwise movement. A '-' button denotes a counterclockwise movement. A '#' symbol denotes the displayed number.</li>
+                </ul>
+                <center>
+                <table class='condition-table'>
+                    <tr>
+                        <th class='translatable'>Stage 1</th>
+                        <td class='translatable'>
+                          <ul>
+                            <li class='translatable'>If red flashed, press <em>green + 2</em>.</li>
+                            <li class='translatable'>Otherwise, if blue flashed, press <em>yellow - #</em>.</li>
+                            <li class='translatable'>Otherwise, if yellow flashed, press <em>purple + #</em>.</li>
+                            <li class='translatable'>Otherwise, if green flashed, press <em>red - 1</em>.</li>
+                            <li class='translatable'>Otherwise, press <em>blue - 2</em>.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                        <th class='translatable'>Stage 2</th>
+                        <td class='translatable'>
+                          <ul>
+                            <li class='translatable'>If green flashed and the colour that flashed at stage 1 was not purple or red, press <em>blue - #</em>.</li>
+                            <li class='translatable'>Otherwise, if red flashed and the colour that was pressed at stage 1 was not green or blue, press <em>yellow + 3</em>.</li>
+                            <li class='translatable'>Otherwise, if blue flashed and the colour that was pressed at stage 1 was purple or yellow, press green.</li>
+                            <li class='translatable'>Otherwise, if yellow flashed and the colour that flashed at stage 1 was not red, press <em>red - 2</em>.</li>
+                            <li class='translatable'>Otherwise, if purple flashed and the colour that flashed at stage 1 was green or red, press <em>purple + #</em>.</li>
+                            <li class='translatable'>Otherwise, press the colour that flashed at stage 1.</li>
+                        </ul>
+                      </td>
+                    </tr>
+
+              </table>
+              </center>
+
+
+            </div>
+            <div class="page-footer relative-footer translatable">Page 1 of 2</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="page page-bg-01">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title translatable">Simon's Star</span>
+            </div>
+            <div class="page-content">
+
+              <center>
+              <table class='condition-table'>
+                  <tr>
+                      <th class='translatable'>Stage 3</th>
+                      <td class='translatable'>
+                        <ul>
+                          <li class='translatable'>If three unique colours have flashed, press <em>yellow - #</em>.</li>
+                          <li class='translatable'>Otherwise, if two unique colours have been pressed,<br>press <em>blue + 2</em>.</li>
+                          <li class='translatable'>Otherwise, if neither green or purple have been pressed, <br>press <em>red + #</em>.</li>
+                          <li class='translatable'>Otherwise, if blue or red flashed, press <em>purple - 1</em>.</li>
+                          <li class='translatable'>Otherwise, press the colour that was pressed at stage 1.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th class='translatable'>Stage 4</th>
+                      <td class='translatable'>
+                        <ul>
+                          <li class='translatable'>If the colour that flashed at <em>stage 3 + #</em> has been pressed, press the colour that was pressed at stage 2.</li>
+                          <li class='translatable'>Otherwise, if the colour that flashed at <em>stage 4 - 2</em> has not been pressed, press the colour that flashed at <em>stage 3 - #</em>.</li>
+                          <li class='translatable'>Otherwise, if the colour that was pressed at <em>stage 2 - #</em> has flashed, press the colour that flashed at stage 1.</li>
+                          <li class='translatable'>Otherwise, if the colour that was pressed at <em>stage 1 + 2</em> has not been pressed, press the colour that was pressed at <em>stage 3 + #</em>.</li>
+                          <li class='translatable'>Otherwise, press the colour that flashed at stage 2</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                      <th class='translatable'>Stage 5</th>
+                      <td class='translatable'>
+                        <ul>
+                          <li class='translatable'>If all five colours have flashed, press green.</li>
+                          <li class='translatable'>Otherwise, if purple has not been pressed, press red.</li>
+                          <li class='translatable'>Otherwise, if yellow has not flashed, press blue.</li>
+                          <li class='translatable'>Otherwise, if <em>red - #</em> has not been pressed, press purple.</li>
+                          <li class='translatable'>Otherwise, if <em>blue + #</em> has not flashed, press yellow.</li>
+                          <li class='translatable'>Otherwise, if green has flashed and been pressed, press <em>red + #</em>.</li>
+                          <li class='translatable'>Otherwise, press <em>blue - #</em>.</li>
+                      </ul>
+                    </td>
+                  </tr>
+
+            </table>
+            </center>
+            <ul>
+                <li class='translatable'>Once you have passed a stage, the pass light will indicate what the central digit was at that stage, with stage 1 being the southern light and subsequent pass lights being read clockwise.</li>
+              </ul>
+            <table class='condition-table'>
+                <tr>
+                    <th class='translatable'>Colour</th>
+                    <th class='translatable'>Digit</th>
+                </tr>
+                <tr>
+                    <td class='translatable'>Blue</td>
+                    <td class='translatable'>0</td>
+
+                  </tr>
+                  <tr>
+                      <td class='translatable'>Green</td>
+                      <td class='translatable'>1</td>
+                    </tr>
+                    <tr>
+                        <td class='translatable'>Purple</td>
+                        <td class='translatable'>2</td>
+                      </tr>
+                      <tr>
+                          <td class='translatable'>Red</td>
+                          <td class='translatable'>3</td>
+                            </tr>
+                            <tr>
+                                <td class='translatable'>Yellow</td>
+                                <td class='translatable'>4</td>
+                                  </tr>
+          </table>
+
+            </div>
+            <div class="page-footer relative-footer translatable">Page 2 of 2</div>
+        </div>
+    </div>
+</body>
+</html>
