@@ -1,17 +1,16 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using simonSpeaks;
 
-public class simonSpeaksScript : MonoBehaviour
+public class simonsStarScript : MonoBehaviour
 {
     public KMBombInfo Bomb;
     public KMAudio Audio;
 
     //buttons
-    public speakButtons[] buttons;
+    public starButtons[] buttons;
     public List<int> selectedColours = new List<int>();
     public List<String> flashedColours = new List<string>();
     public Color[] colourOptions;
@@ -47,7 +46,7 @@ public class simonSpeaksScript : MonoBehaviour
     public string firstFlashLocation;
     public string firstFlashColour;
     private bool stageOnePass = false;
-    private speakButtons firstCorrectButton;
+    private starButtons firstCorrectButton;
     private int basePositionIndex;
 
     //secondFlashInfo
@@ -55,34 +54,34 @@ public class simonSpeaksScript : MonoBehaviour
     public string secondFlashLocation;
     public string secondFlashColour;
     private bool stageTwoPass = false;
-    private speakButtons secondCorrectButton;
+    private starButtons secondCorrectButton;
 
     //thirdFlashInfo
     private int thirdFlashIndex = 0;
     public string thirdFlashLocation;
     public string thirdFlashColour;
     private bool stageThreePass = false;
-    private speakButtons thirdCorrectButton;
+    private starButtons thirdCorrectButton;
 
     //fourthFlashInfo
     private int fourthFlashIndex = 0;
     public string fourthFlashLocation;
     public string fourthFlashColour;
     private bool stageFourPass = false;
-    private speakButtons fourthCorrectButton;
-    private speakButtons fourthHolderButton1;
-    private speakButtons fourthHolderButton2;
-    private speakButtons fourthHolderButton3;
-    private speakButtons fourthHolderButton4;
+    private starButtons fourthCorrectButton;
+    private starButtons fourthHolderButton1;
+    private starButtons fourthHolderButton2;
+    private starButtons fourthHolderButton3;
+    private starButtons fourthHolderButton4;
 
     //fifthFlashInfo
     private int fifthFlashIndex = 0;
     public string fifthFlashLocation;
     public string fifthFlashColour;
     private bool stageFivePass = false;
-    private speakButtons fifthCorrectButton;
-    private speakButtons fifthHolderButton4;
-    private speakButtons fifthHolderButton5;
+    private starButtons fifthCorrectButton;
+    private starButtons fifthHolderButton4;
+    private starButtons fifthHolderButton5;
 
     //Logging
     static int moduleIdCounter = 1;
@@ -91,9 +90,9 @@ public class simonSpeaksScript : MonoBehaviour
     void Awake()
     {
         moduleId = moduleIdCounter++;
-        foreach (speakButtons selectable in buttons)
+        foreach (starButtons selectable in buttons)
         {
-            speakButtons pressedButton = selectable;
+            starButtons pressedButton = selectable;
             selectable.selectable.OnInteract += delegate () { buttonPress(pressedButton); return false; };
         }
     }
@@ -104,7 +103,7 @@ public class simonSpeaksScript : MonoBehaviour
         {
             indicLight.enabled = false;
         }
-        foreach(speakButtons spot in buttons)
+        foreach(starButtons spot in buttons)
         {
             spot.buttonLight.enabled = false;
         }
@@ -125,7 +124,7 @@ public class simonSpeaksScript : MonoBehaviour
 
     void pickInitialColours()
     {
-        foreach(speakButtons buttonMat in buttons)
+        foreach(starButtons buttonMat in buttons)
         {
             int matIndex = UnityEngine.Random.Range(0,5);
             while(selectedColours.Contains(matIndex))
@@ -206,7 +205,7 @@ public class simonSpeaksScript : MonoBehaviour
 
     IEnumerator flashes()
     {
-        foreach(speakButtons flash in buttons)
+        foreach(starButtons flash in buttons)
         {
             flash.buttonLight.enabled = false;
         }
@@ -306,7 +305,7 @@ public class simonSpeaksScript : MonoBehaviour
     {
         if(firstFlashColour == "red")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "green")
                 {
@@ -317,7 +316,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (firstFlashColour == "blue")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "yellow")
                 {
@@ -328,7 +327,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (firstFlashColour == "yellow")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "purple")
                 {
@@ -339,7 +338,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (firstFlashColour == "green")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "red")
                 {
@@ -350,7 +349,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "blue")
                 {
@@ -365,7 +364,7 @@ public class simonSpeaksScript : MonoBehaviour
     {
         if(secondFlashColour == "green" && firstFlashColour != "purple" && firstFlashColour != "red")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "blue")
                 {
@@ -376,7 +375,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(secondFlashColour == "red" && firstCorrectButton.buttonColourIndex != 1 && firstCorrectButton.buttonColourIndex != 0)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "yellow")
                 {
@@ -387,7 +386,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(secondFlashColour == "blue" && (firstCorrectButton.buttonColourIndex == 2 || firstCorrectButton.buttonColourIndex == 4))
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "green")
                 {
@@ -398,7 +397,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(secondFlashColour == "yellow" && firstFlashColour != "red")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "red")
                 {
@@ -409,7 +408,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(secondFlashColour == "purple" && (firstFlashColour == "red" || firstFlashColour == "green"))
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "purple")
                 {
@@ -420,7 +419,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == firstFlashColour)
                 {
@@ -435,7 +434,7 @@ public class simonSpeaksScript : MonoBehaviour
     {
         if(firstFlashColour != secondFlashColour && firstFlashColour != thirdFlashColour && secondFlashColour != thirdFlashColour)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "yellow")
                 {
@@ -446,7 +445,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(firstCorrectButton.buttonColourIndex != secondCorrectButton.buttonColourIndex)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "blue")
                 {
@@ -457,7 +456,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(firstCorrectButton.buttonColourIndex != 1 && firstCorrectButton.buttonColourIndex != 2 && secondCorrectButton.buttonColourIndex != 1 && secondCorrectButton.buttonColourIndex != 2)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "red")
                 {
@@ -468,7 +467,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if(thirdFlashColour == "blue" || thirdFlashColour == "red")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "purple")
                 {
@@ -479,7 +478,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == firstCorrectButton.colourName)
                 {
@@ -492,7 +491,7 @@ public class simonSpeaksScript : MonoBehaviour
 
     void stageFourLogic()
     {
-        foreach(speakButtons button in buttons)
+        foreach(starButtons button in buttons)
         {
             if(button.colourName == thirdFlashColour)
             {
@@ -501,7 +500,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         fourthHolderButton1 = buttons[(basePositionIndex + selectedNumber[3]) % 5];
 
-        foreach(speakButtons button in buttons)
+        foreach(starButtons button in buttons)
         {
             if(button.colourName == fourthFlashColour)
             {
@@ -510,7 +509,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         fourthHolderButton2 = buttons[(basePositionIndex + 3) % 5];
 
-        foreach(speakButtons button in buttons)
+        foreach(starButtons button in buttons)
         {
             if(button.colourName == secondCorrectButton.colourName)
             {
@@ -519,7 +518,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         fourthHolderButton3 = buttons[(basePositionIndex + (5 - selectedNumber[3])) % 5];
 
-        foreach(speakButtons button in buttons)
+        foreach(starButtons button in buttons)
         {
             if(button.colourName == firstCorrectButton.colourName)
             {
@@ -532,7 +531,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         if(fourthHolderButton1.buttonColourIndex == firstCorrectButton.buttonColourIndex || fourthHolderButton1.buttonColourIndex == secondCorrectButton.buttonColourIndex || fourthHolderButton1.buttonColourIndex == thirdCorrectButton.buttonColourIndex)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == secondCorrectButton.colourName)
                 {
@@ -544,7 +543,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         else if(fourthHolderButton2.buttonColourIndex != firstCorrectButton.buttonColourIndex && fourthHolderButton2.buttonColourIndex != secondCorrectButton.buttonColourIndex && fourthHolderButton2.buttonColourIndex != thirdCorrectButton.buttonColourIndex)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == thirdFlashColour)
                 {
@@ -556,7 +555,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         else if(fourthHolderButton3.colourName == firstFlashColour || fourthHolderButton3.colourName == secondFlashColour || fourthHolderButton3.colourName == thirdFlashColour || fourthHolderButton3.colourName == fourthFlashColour)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == firstFlashColour)
                 {
@@ -568,7 +567,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         else if(fourthHolderButton4.buttonColourIndex != firstCorrectButton.buttonColourIndex && fourthHolderButton4.buttonColourIndex != secondCorrectButton.buttonColourIndex && fourthHolderButton4.buttonColourIndex != thirdCorrectButton.buttonColourIndex)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == thirdCorrectButton.colourName)
                 {
@@ -580,7 +579,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         else
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == secondFlashColour)
                 {
@@ -593,7 +592,7 @@ public class simonSpeaksScript : MonoBehaviour
 
     void stageFiveLogic()
     {
-        foreach(speakButtons button in buttons)
+        foreach(starButtons button in buttons)
         {
             if(button.colourName == "red")
             {
@@ -602,7 +601,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
       fifthHolderButton4 = buttons[(basePositionIndex + (5 - selectedNumber[4])) % 5];
 
-      foreach(speakButtons button in buttons)
+      foreach(starButtons button in buttons)
       {
           if(button.colourName == "blue")
           {
@@ -613,7 +612,7 @@ public class simonSpeaksScript : MonoBehaviour
 
         if(flashedColours.Contains("red") && flashedColours.Contains("green") && flashedColours.Contains("blue") && flashedColours.Contains("yellow") && flashedColours.Contains("purple"))
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "green")
                 {
@@ -624,7 +623,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (firstCorrectButton.buttonColourIndex != 2 && secondCorrectButton.buttonColourIndex != 2 && thirdCorrectButton.buttonColourIndex != 2 && fourthCorrectButton.buttonColourIndex != 2)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "red")
                 {
@@ -635,7 +634,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (firstFlashColour != "yellow" && secondFlashColour != "yellow" && thirdFlashColour != "yellow" && fourthFlashColour != "yellow" && fifthFlashColour != "yellow")
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "blue")
                 {
@@ -646,7 +645,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (fifthHolderButton4.colourName != firstCorrectButton.colourName && fifthHolderButton4.colourName != secondCorrectButton.colourName && fifthHolderButton4.colourName != thirdCorrectButton.colourName && fifthHolderButton4.colourName != fourthCorrectButton.colourName)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "purple")
                 {
@@ -657,7 +656,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if (fifthHolderButton5.colourName != firstFlashColour && fifthHolderButton5.colourName != secondFlashColour && fifthHolderButton5.colourName != thirdFlashColour && fifthHolderButton5.colourName != fourthFlashColour && fifthHolderButton5.colourName != fifthFlashColour)
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "yellow")
                 {
@@ -668,7 +667,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else if ((firstFlashColour == "green" || secondFlashColour == "green" || thirdFlashColour == "green" || fourthFlashColour == "green" || fifthFlashColour == "green") && (firstCorrectButton.colourName == "green" || secondCorrectButton.colourName == "green" || thirdCorrectButton.colourName == "green" || fourthCorrectButton.colourName == "green"))
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "red")
                 {
@@ -679,7 +678,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
         else
         {
-            foreach(speakButtons button in buttons)
+            foreach(starButtons button in buttons)
             {
                 if(button.colourName == "blue")
                 {
@@ -886,7 +885,7 @@ public class simonSpeaksScript : MonoBehaviour
         striking = false;
     }
 
-    void buttonPress(speakButtons selectable)
+    void buttonPress(starButtons selectable)
     {
         if(moduleSolved || solving || striking)
         {
@@ -895,7 +894,7 @@ public class simonSpeaksScript : MonoBehaviour
         GetComponent<KMSelectable>().AddInteractionPunch(0.5f);
         pressedButtonName = selectable.colourName;
         StopCoroutine(flashRoutine);
-        foreach(speakButtons flash in buttons)
+        foreach(starButtons flash in buttons)
         {
             flash.buttonLight.enabled = false;
         }
@@ -1480,7 +1479,7 @@ public class simonSpeaksScript : MonoBehaviour
         }
     }
 
-    IEnumerator pressFlash(speakButtons selectable)
+    IEnumerator pressFlash(starButtons selectable)
     {
         if(selectable.selectable == buttons[0])
         {
@@ -1558,12 +1557,12 @@ public class simonSpeaksScript : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Audio.PlaySoundAtTransform("solvedSound", transform);
-        foreach(speakButtons flash in buttons)
+        foreach(starButtons flash in buttons)
         {
             flash.buttonLight.enabled = true;
         }
         yield return new WaitForSeconds(0.5f);
-        foreach(speakButtons flash in buttons)
+        foreach(starButtons flash in buttons)
         {
             flash.buttonLight.enabled = false;
         }
@@ -1578,23 +1577,27 @@ public class simonSpeaksScript : MonoBehaviour
         buttons[4].buttonLight.enabled = true;
     }
 
-	private IEnumerator ProcessTwitchCommand(string command)
-	{
-		command = command.Trim().ToLowerInvariant();
-		string[] parts = command.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-		if (!command.StartsWith("press")) yield break;
-		string[] valid = new[] { "r", "g", "b", "y", "p", "red", "green", "blue", "yellow", "purple" };
-		foreach (string part in parts.Skip(1))
-		{
-			if (!valid.Contains(part)) yield break;
-		}
-		yield return null;
-		foreach (string part in parts.Skip(1))
-		{
-			speakButtons correctButton = buttons.Where(x => x.colourName.StartsWith(part)).First();
-			yield return correctButton.selectable;
-			yield return null;
-			yield return correctButton.selectable;
-		}
-	}
+#pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"Submit yellow, green and purple with “!{0} press yellow green purple”.";
+#pragma warning restore 414
+
+    private IEnumerator ProcessTwitchCommand(string command)
+    {
+        command = command.Trim().ToLowerInvariant();
+        string[] parts = command.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+        if (!command.StartsWith("press")) yield break;
+        string[] valid = new[] { "r", "g", "b", "y", "p", "red", "green", "blue", "yellow", "purple" };
+        foreach (string part in parts.Skip(1))
+        {
+            if (!valid.Contains(part)) yield break;
+        }
+        yield return null;
+        foreach (string part in parts.Skip(1))
+        {
+            starButtons correctButton = buttons.Where(x => x.colourName.StartsWith(part)).First();
+            yield return "trycancel";
+            yield return new[] { correctButton.selectable };
+            yield return new WaitForSeconds(.4f);
+        }
+    }
 }
