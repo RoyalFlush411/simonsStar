@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class simonsStarScript : MonoBehaviour
@@ -1576,23 +1577,27 @@ public class simonsStarScript : MonoBehaviour
         buttons[4].buttonLight.enabled = true;
     }
 
-	private IEnumerator ProcessTwitchCommand(string command)
-	{
-		command = command.Trim().ToLowerInvariant();
-		string[] parts = command.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-		if (!command.StartsWith("press")) yield break;
-		string[] valid = new[] { "r", "g", "b", "y", "p", "red", "green", "blue", "yellow", "purple" };
-		foreach (string part in parts.Skip(1))
-		{
-			if (!valid.Contains(part)) yield break;
-		}
-		yield return null;
-		foreach (string part in parts.Skip(1))
-		{
-			speakButtons correctButton = buttons.Where(x => x.colourName.StartsWith(part)).First();
-			yield return correctButton.selectable;
-			yield return null;
-			yield return correctButton.selectable;
-		}
-	}
+#pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"Submit yellow, green and purple with “!{0} press yellow green purple”.";
+#pragma warning restore 414
+
+    private IEnumerator ProcessTwitchCommand(string command)
+    {
+        command = command.Trim().ToLowerInvariant();
+        string[] parts = command.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+        if (!command.StartsWith("press")) yield break;
+        string[] valid = new[] { "r", "g", "b", "y", "p", "red", "green", "blue", "yellow", "purple" };
+        foreach (string part in parts.Skip(1))
+        {
+            if (!valid.Contains(part)) yield break;
+        }
+        yield return null;
+        foreach (string part in parts.Skip(1))
+        {
+            starButtons correctButton = buttons.Where(x => x.colourName.StartsWith(part)).First();
+            yield return "trycancel";
+            yield return new[] { correctButton.selectable };
+            yield return new WaitForSeconds(.4f);
+        }
+    }
 }
