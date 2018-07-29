@@ -1577,4 +1577,24 @@ public class simonSpeaksScript : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         buttons[4].buttonLight.enabled = true;
     }
+
+	private IEnumerator ProcessTwitchCommand(string command)
+	{
+		command = command.Trim().ToLowerInvariant();
+		string[] parts = command.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+		if (!command.StartsWith("press")) yield break;
+		string[] valid = new[] { "r", "g", "b", "y", "p", "red", "green", "blue", "yellow", "purple" };
+		foreach (string part in parts.Skip(1))
+		{
+			if (!valid.Contains(part)) yield break;
+		}
+		yield return null;
+		foreach (string part in parts.Skip(1))
+		{
+			speakButtons correctButton = buttons.Where(x => x.colourName.StartsWith(part)).First();
+			yield return correctButton.selectable;
+			yield return null;
+			yield return correctButton.selectable;
+		}
+	}
 }
