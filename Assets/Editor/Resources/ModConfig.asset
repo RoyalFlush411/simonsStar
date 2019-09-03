@@ -13,11 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: simonsStar
   title: Simon's Star
-  description: "Simon\u2019s Star 1.21\nSimon has given up on doing stuff and started
+  description: "Simon\u2019s Star 1.23\nSimon has given up on doing stuff and started
     possessing stuff instead.\n\nModule ID: simonsStar\n\nCreated by: Royal_Flu$h\nTwitchPlays
     implemented by: red031000\n\nSpecial thanks to SpaceScrew, red031000, Riverbui
     & AshTheBash for their assistance in solving the broken material issue.\nThanks
     to Timwi for the manual image.\n\nManual available here: https://ktane.timwi.de/HTML/Simon%E2%80%99s%20Star.html"
-  version: 1.21
+  version: 1.23
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 3f7c8f9ec7a74457396bbd5f708f0660, type: 3}

@@ -148,15 +148,15 @@ public class simonsStarScript : MonoBehaviour
     {
         if(numbersSelected == false)
         {
-            int selectedDigitA = UnityEngine.Random.Range(1,5);
+            int selectedDigitA = UnityEngine.Random.Range(0,5);
             selectedNumber[0] = selectedDigitA;
-            int selectedDigitB = UnityEngine.Random.Range(1,5);
+            int selectedDigitB = UnityEngine.Random.Range(0,5);
             selectedNumber[1] = selectedDigitB;
-            int selectedDigitC = UnityEngine.Random.Range(1,5);
+            int selectedDigitC = UnityEngine.Random.Range(0,5);
             selectedNumber[2] = selectedDigitC;
-            int selectedDigitD = UnityEngine.Random.Range(1,5);
+            int selectedDigitD = UnityEngine.Random.Range(0,5);
             selectedNumber[3] = selectedDigitD;
-            int selectedDigitE = UnityEngine.Random.Range(1,5);
+            int selectedDigitE = UnityEngine.Random.Range(0,5);
             selectedNumber[4] = selectedDigitE;
             numbersSelected = true;
         }
